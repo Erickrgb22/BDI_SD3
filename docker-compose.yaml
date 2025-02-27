@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres
+    container_name: postgressql
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: egilmore
+      POSTGRES_PASSWORD: pg.ERGB.22
+      volumes:
+      - postgressql_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: erick.rgb.00@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: pg.ERGB.22
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  postgressql_data:
+  pgadmin_data:
