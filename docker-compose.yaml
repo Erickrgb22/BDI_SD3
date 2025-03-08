@@ -8,5 +8,7 @@ services:
     environment:
       POSTGRES_USER: egilmore
       POSTGRES_PASSWORD: pg.ERGB.22
+      POSTGRES_DB: aprendemas
     volumes:
       - ./postgressql_data:/var/lib/postgresql/data
+      - ./aprendemas_back.sql:/docker-entrypoint-initdb.d/aprendemas_back.sql
